@@ -1,32 +1,41 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import "./App.css";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  Navigate
+} from "react-router-dom";
 
-// Componente da tela inicial
-const Home = () => {
-  return (
-    <div>
-      <h1>Tela Inicial</h1>
-      <Link to="/tela2">Ir para a Tela 2</Link>
-    </div>
-  );
-};
 
-// Componente da tela 2
-const Tela2 = () => {
-  return (
-    <div>
-      <h1>Tela 2</h1>
-    </div>
-  );
-};
+import Home from "./Home";
 
-// Componente principal
+import About from "./About";
+
+import ContactUs from "./ContactUs";
+
 const App = () => {
   return (
     <Router>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/contactus">Contact Us</Link>
+          </li>
+        </ul>
+      </nav>
+
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/tela2" element={<Tela2 />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contactus" element={<ContactUs />} />
       </Routes>
     </Router>
   );
